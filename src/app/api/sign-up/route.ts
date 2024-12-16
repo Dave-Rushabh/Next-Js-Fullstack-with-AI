@@ -58,7 +58,7 @@ export const POST = async (request: Request) => {
         messages: [],
       });
       await newUser.save();
-      handleSendingEmailForCodeVerification(
+      return handleSendingEmailForCodeVerification(
         email,
         username,
         verifyCode,
@@ -70,7 +70,7 @@ export const POST = async (request: Request) => {
       existingUser.verifyCode = generateVerificationCode();
       existingUser.verifyCodeExpiry = setVerificationCodeExpiry();
       await existingUser.save();
-      handleSendingEmailForCodeVerification(
+      return handleSendingEmailForCodeVerification(
         email,
         username,
         verifyCode,
