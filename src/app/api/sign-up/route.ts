@@ -25,6 +25,7 @@ async function handleSendingEmailForCodeVerification(
   const sendingEmail = await sendVerificationEmail(email, username, code);
 
   if (sendingEmail.success) {
+    console.log("here", successMsg);
     return Response.json({ success: true, message: successMsg });
   } else {
     return Response.json({ success: false, message: FailureMsg });
