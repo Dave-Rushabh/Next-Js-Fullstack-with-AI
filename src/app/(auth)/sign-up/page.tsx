@@ -89,7 +89,10 @@ const SignUp = () => {
         title: "Success",
         description: resp.data.message,
       });
-      router.replace(`/verify/${data.username}`);
+
+      setTimeout(() => {
+        router.replace(`/verify/${data.username}`);
+      }, 1500);
     } catch (error) {
       console.error("Error signin up the user", error);
       const axiosError = error as AxiosError<ApiResponse>;
