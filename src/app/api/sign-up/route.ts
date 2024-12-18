@@ -25,7 +25,6 @@ async function handleSendingEmailForCodeVerification(
   const sendingEmail = await sendVerificationEmail(email, username, code);
 
   if (sendingEmail.success) {
-    console.log("here", successMsg);
     return Response.json({ success: true, message: successMsg });
   } else {
     return Response.json({ success: false, message: FailureMsg });
@@ -39,6 +38,7 @@ export const POST = async (request: Request) => {
     const { username, email, password } = await request.json();
     const verifyCode = generateVerificationCode();
     const verifyCodeExpiry = setVerificationCodeExpiry();
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     // Check if user exists with the given email or username
     const existingUser = await UserModel.findOne({
@@ -47,7 +47,6 @@ export const POST = async (request: Request) => {
 
     if (!existingUser) {
       // User is unregistered, create a new user
-      const hashedPassword = await bcrypt.hash(password, 10);
       const newUser = new UserModel({
         username,
         email,
@@ -68,8 +67,11 @@ export const POST = async (request: Request) => {
       );
     } else if (!existingUser.isVerified) {
       // User exists but is unverified, update verification code and expiry
-      existingUser.verifyCode = generateVerificationCode();
-      existingUser.verifyCodeExpiry = setVerificationCodeExpiry();
+      existingUser.verifyCode = verifyCode;
+      existingUser.verifyCodeExpiry = verifyCodeExpiry;
+      existingUser.email = email;
+      existingUser.password = hashedPassword;
+      existingUser.username = username;
       await existingUser.save();
       return handleSendingEmailForCodeVerification(
         email,

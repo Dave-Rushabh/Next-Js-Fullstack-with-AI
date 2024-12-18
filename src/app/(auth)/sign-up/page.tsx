@@ -16,6 +16,7 @@ import { ApiResponse } from "@/types/ApiResponse";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios, { AxiosError } from "axios";
 import { Loader2 } from "lucide-react";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -114,7 +115,9 @@ const SignUp = () => {
         <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
-              Join Stealth Message
+              Join
+              <br />
+              Stealth Message
             </h1>
             <p className="mb-4">Sign up to get started</p>
           </div>
@@ -200,7 +203,7 @@ const SignUp = () => {
               Already a member ?
               <Link
                 href={"/sign-in"}
-                className="text-blue-600 hover:text-blue-800 ml-4"
+                className="text-blue-600 hover:text-blue-800 ml-2"
               >
                 Sign In
               </Link>

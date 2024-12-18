@@ -47,19 +47,19 @@ export default function VerificationEmail({
         <Row>
           <Text>{otp}</Text>
         </Row>
+
+        <Row>
+          <Text>
+            You can verify your email here :
+            {`http://localhost:3000/verify/${username}`}
+          </Text>
+        </Row>
+
         <Row>
           <Text>
             If you did not request this code, please ignore this email.
           </Text>
         </Row>
-        {/* <Row>
-          <Button
-            href={`http://localhost:3000/verify/${username}`}
-            style={{ color: '#61dafb' }}
-          >
-            Verify here
-          </Button>
-        </Row> */}
       </Section>
     </Html>
   );
