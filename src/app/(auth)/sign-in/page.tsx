@@ -49,13 +49,17 @@ const SignIn = () => {
           variant: "destructive",
         });
       }
-      router.replace("/dashboard");
-      toast({
-        title: "Success",
-        description: "Signed in successfully",
-      });
+
+      if (result?.url) {
+        console.log({ result });
+        router.replace("/dashboard");
+        toast({
+          title: "Success",
+          description: "Signed in successfully",
+        });
+      }
     } catch (error) {
-      console.error("Error signing in the user", error);
+      console.error("Error sign in the user", error);
       const axiosError = error as AxiosError<ApiResponse>;
       toast({
         title: "Sign In Failed",
@@ -126,7 +130,7 @@ const SignIn = () => {
               Not a member ?
               <Link
                 href={"/sign-up"}
-                className="text-blue-600 hover:text-blue-800 ml-4"
+                className="text-blue-600 hover:text-blue-800 ml-2"
               >
                 Sign Up
               </Link>
@@ -137,5 +141,4 @@ const SignIn = () => {
     </>
   );
 };
-
 export default SignIn;
