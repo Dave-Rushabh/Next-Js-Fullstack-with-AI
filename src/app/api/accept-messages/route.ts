@@ -104,7 +104,7 @@ export const GET = async () => {
     return Response.json(
       {
         success: true,
-        data: foundUser.isAcceptingMessages,
+        isAcceptingMessages: foundUser.isAcceptingMessages,
       },
       {
         status: 200,

@@ -49,7 +49,7 @@ export const POST = async (request: Request) => {
         message: "Message sent successfully !",
       },
       {
-        status: 403,
+        status: 200,
       }
     );
   } catch (error) {

@@ -55,6 +55,7 @@ const SignIn = () => {
         toast({
           title: "Success",
           description: "Signed in successfully",
+          className: "bg-green-200",
         });
       }
     } catch (error) {
@@ -63,6 +64,7 @@ const SignIn = () => {
       toast({
         title: "Sign In Failed",
         description: axiosError.response?.data.message,
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
@@ -71,7 +73,7 @@ const SignIn = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="flex justify-center items-center min-h-screen bg-[#778da9]">
         <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">

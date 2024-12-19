@@ -28,7 +28,6 @@ export const GET = async () => {
       },
     });
 
-    const chat = model.startChat({});
     const result = await model.generateContent(prompt);
 
     if (!result) {
