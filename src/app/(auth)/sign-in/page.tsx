@@ -51,7 +51,6 @@ const SignIn = () => {
       }
 
       if (result?.url) {
-        console.log({ result });
         router.replace("/dashboard");
         toast({
           title: "Success",
