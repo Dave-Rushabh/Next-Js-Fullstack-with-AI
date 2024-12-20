@@ -51,7 +51,7 @@ export default function VerificationEmail({
         <Row>
           <Text>
             You can verify your email here :
-            {`http://localhost:3000/verify/${username}`}
+            {`https://stealth-message.vercel.app/verify/${username}`}
           </Text>
         </Row>
 
