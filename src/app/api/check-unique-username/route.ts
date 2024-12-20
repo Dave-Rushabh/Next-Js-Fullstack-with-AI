@@ -10,20 +10,18 @@ const UsernameQuerySchema = z.object({
     .regex(/^[a-zA-Z0-9]+$/, "Username must not contain special characters"),
 });
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
   await dbConnect();
 
   try {
-    const { searchParams } = new URL(request.url);
-    const queryParam = {
-      username: searchParams.get("username"),
-    };
+    const { username: nameToBeChecked } = await request.json();
 
     // validate with ZOD
-    const result = UsernameQuerySchema.safeParse(queryParam);
+    const result = UsernameQuerySchema.safeParse({ username: nameToBeChecked });
 
     if (!result.success) {
       const usernameErrors = result.error.format().username?._errors || [];
+
       return Response.json(
         {
           success: false,

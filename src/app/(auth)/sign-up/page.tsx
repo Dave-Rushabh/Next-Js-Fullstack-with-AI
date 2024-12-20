@@ -52,9 +52,9 @@ const SignUp = () => {
         }));
 
         try {
-          const resp = await axios.get(
-            `/api/check-unique-username/?username=${data.username}`
-          );
+          const resp = await axios.post(`/api/check-unique-username`, {
+            username: data.username,
+          });
           const { message } = await resp.data;
 
           setData((prev) => ({
@@ -101,7 +101,7 @@ const SignUp = () => {
       toast({
         title: "Sign Up Failed",
         description: axiosError.response?.data.message,
-        variant : "destructive"
+        variant: "destructive",
       });
     } finally {
       setData((prev) => ({

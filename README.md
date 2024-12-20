@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Stealth Message : AI-Powered Anonymous feedbacks
 
-## Getting Started
+- Stealth Message is a cutting-edge, AI-powered full-stack web application designed to revolutionize anonymous interactions. Built with Next.js and MongoDB.
+- It empowers users to send anonymous, AI-suggested messages to influencers while maintaining complete privacy.
 
-First, run the development server:
+## Tech Stack :
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Next.js
+- MongoDB
+- Shadcn UI
+- Resend API
+- Auth.js
+- Gemini AI
+- TypeScript
+- Tailwind CSS
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Highlights:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+###### AI-Suggested Messages :
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Enhanced engagement with intelligent suggestions tailored to user context.
 
-## Learn More
+###### Anonymous Messaging :
 
-To learn more about Next.js, take a look at the following resources:
+- Ensures complete user anonymity with secure backend protocols.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+###### OTP Verification :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Robust authentication for safe and verified interactions.
 
-## Deploy on Vercel
+###### User-Friendly Dashboard :
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Intuitive design for seamless navigation and message management.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+###### Scalable Backend :
+
+- Engineered for high performance and future scalability.
+
+###### Type-Safe Codebase :
+
+- Ensures reliability and maintainability with TypeScript integration.
+
+This project showcases expertise in modern web development technologies, user-centric design, and innovative AI-driven features.
+
+## How to run on local server
+
+- Make sure node js version is >= 18 to support AI features
+- run command : `npm install` to install the required packages
+- run command : `npm run dev` to start the local server
+
+## Additional notes
+
+- You need to create an account with MongoDB, Gemini AI & Resend API
